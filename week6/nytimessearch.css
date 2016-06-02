@@ -1,0 +1,47 @@
+.jumbotron {
+	text-align: center;
+}
+.heading {
+	color: #ffffff;
+	background-color: black;
+
+}
+.textBox {
+	width: 98%;
+	margin-left: 10px;
+	margin-right: 20px;
+	
+}
+.container {
+	border-style: solid;
+	border-radius: 6px;
+	margin-top: 20px;
+	
+	padding-bottom: 15px;
+	
+	padding-top: 0;
+
+}
+
+.btn {
+	margin-top: 5px;
+	color: #ffffff;
+	background-color: #666666;
+}
+
+h2 {
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: 0;
+	color: #ffffff;
+	background-color: black;
+	
+}
+label {
+	margin-left: 10px;
+	margin-right: 20px;
+}
+#searchButton {
+	margin-left: 10px;
+
+}
