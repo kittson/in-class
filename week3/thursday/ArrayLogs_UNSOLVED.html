@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Array Printing</title>
+</head>
+<body>
+	<script>
+
+	// Use this Array
+	var coolPeople = ['bruce lee', 'arnold schwarzenegger', 'will smith', 'esther', 'marie curie', 'joan of arc'];
+	var arrayLength = coolPeople.length;
+
+	zooAnimals = ["Zebra", "Rhino", "Giraffe", "Owl"];
+	var zooLength = zooAnimals.length;
+	// Then use console.log to print each of the names listed inside.
+	// ...
+	for (var i = 0 ; i < arrayLength; i++) {
+		
+		coolPeople[i] = coolPeople[i].toLowerCase();
+		console.log(coolPeople[i]);
+	}
+	for (var i = 0 ; i < zooLength; i++) {
+		
+		zooAnimals[i] = zooAnimals[i].toLowerCase();
+		console.log(zooAnimals[i]);
+	}
+
+	/*
+	console.log(coolPeople[0]);
+	console.log(coolPeople[1]);
+	console.log(coolPeople[2]);
+	console.log(coolPeople[3]);
+	console.log(coolPeople[4]);
+	console.log(coolPeople[5]);
+	*/
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+
+<head>
+	<title>palindrome checker</title>
+</head>
+<body>
+<div class="inputForm">
+	<label for="addItem">the string</label>
+	<input type="text" id="stringToParse">
+	<button type="submit" class="buttonString" id="theButton">input the string</button>
+</div>
+
+	<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+	<script type="text/javascript">	
+
+	var newInStr = "";
+	function replaceComma(inString){        
+    	var alteredString = inString.replace(/,/g,"");
+    	return alteredString; 
+ 	}
+ 	function compareStrings(inArr){
+		//var backwardArrString = [];			
+		//for (var i = 0; i < inArr.length; i++){
+		//	backwardArrString.push(inArr[i]);
+		//for (var i = 0; i < newInStr.length; i++){
+			//backwardArrString.push(newInStr[i]);
+			var backwardString = newInStr.split("").reverse().join("");
+			console.log("created backward string " + backwardString);
+		//}
+		
+		//targString = inArr.toString();			
+		//console.log("targString after stringing " + targString);				
+		//var backwardString = backwardArrString.toString();
+		//console.log("bkstring after stringing " + backwardString);
+		
+ 		//targString = replaceComma(targString);
+ 		//backwardString = replaceComma(backwardString);
+
+		//console.log("targString is " + targString + "backwardString is " + backwardString);
+
+		//if ( targString === backwardString ){
+		if ( newInStr === backwardString ){
+			console.log("palindrome");
+		}
+		else {
+			console.log("not a palindrome");
+		}
+	}//compareStrings func
+
+	//$('body').on('click','#theButton', function(){
+	$('body').on('click','.buttonString', function(){
+        newInStr = $(stringToParse).val();
+        console.log("val is " + newInStr); 
+        compareStrings(newInStr);      
+   });//click
+
+	//theArrString = ["x", "a", "n", "a", "x"]; for testing	
+	
+	
+
+	//compareStrings(theArrString);
+	
+
+
+	</script>
+</body>
+</html>

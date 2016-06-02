@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hangman Game</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body background="images/lightbg.png">
+
+	<div id="hangmangame">
+
+	</div>
+
+	<script type="text/javascript">
+
+	//var dictionary = ['abbreviate','salutations','initiate', 'pattern']; //replace with file later on
+	var pos = 0;
+	var tries = 0;
+	var losses = 0;
+	var wins = 0;
+	var alphaChars = "[a-z]"; // valid chars
+	var targetWord = 'devour'; //start with a single word for now do code later for word selection
+	var targetLetters = targetWord.split("");
+	var storeGoodLetters = [];
+	var storeBadLetters = [];
+	var storeAllLetters = [];
+	var goodGuessLetters = [];
+	var pp;
+	var underBar = '_';
+	var lengthOfGame = targetLetters.length;
+	var drumCymbal = new Audio('sounds/drumCymbal.mp3');
+	// drumCymbal.play();
+	
+	function isLetter(str) {
+		return str.length === 1 && str.match(/[a-z]/i);
+	}
+	
+	// figure out target word
+
+	for ( var i = 0; i < targetLetters.length; i++) {
+		goodGuessLetters.push( underBar);
+	}
+
+	console.log("blanks ", goodGuessLetters);
+
+	// Captures Key Clicks
+	document.onkeyup = function(event) {
+
+	// Determines which exact key was selected. Make it lowercase
+	var userInput = String.fromCharCode(event.keyCode).toLowerCase();
+	//for ( var i = 0; i < targetLetters.length; i++) {
+		if ( isLetter(userInput) ) {
+			
+			if ( targetLetters.indexOf(userInput)  > -1) {
+				storeGoodLetters.push(userInput);
+				pos = targetLetters.indexOf(userInput);
+				goodGuessLetters.splice( pos, 1, userInput);
+				console.log( goodGuessLetters );
+			}
+			else {
+				storeBadLetters.push(userInput);
+				console.log(userInput);
+				console.log(storeBadLetters);
+				lengthOfGame--;
+
+			}
+			storeAllLetters.push(userInput);		
+		 
+			var html = 
+
+			"Press a key to start playing" +
+				
+				"<p>Word  " + 
+				goodGuessLetters + 
+				"guesses left " + 
+				lengthOfGame +
+				"</p>";
+
+				document.querySelectorAll('#hangmangame', '#box-all').innerHTML = html; 
+		} //if isLetter
+		else {
+			alert ("Oops, alpha characters only!, Please try again.")
+		}
+	} 
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+
+<head>
+	<title>pangram checker</title>
+</head>
+<body>
+	<div class="inputForm">
+		<label for="addItem">Enter a String or Sentence to Check for Pangrams</label>
+		<input type="text" id="stringToParse">
+		<button type="submit" class="buttonString" id="theButton">Click to Check</button>
+	</div>
+
+	<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+	<script type="text/javascript">	
+
+		var newInStr = "";
+		var pangram = "false";
+
+	//little functions
+	function fixUpString(string){        
+		var alteredString = string.toLowerCase();
+		newString = alteredString.replace(/ /g, "");
+       //console.log(newString);
+       return newString; 
+    }
+    function lowerCase(string){        
+    	var alteredString = string.replace(/ /g, "+");
+       //console.log(alteredString);
+       return alteredString; 
+    }
+
+   //testString = fixUpString("We promptly judged antique ivory buckles for the next prize");
+
+   var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+
+   function testForPangram(inputString){
+   	for(var i =0; i < alphabet.length; i++){
+   		var found = 0;
+   		console.log(inputString.includes(alphabet[i]));
+   		if(inputString.includes(alphabet[i])){
+   			found++;
+   		}
+   		if( found === 26 ){
+	   		pangram = true;
+	   	}
+   	};//for loop  	
+   };//function
+
+   $('body').on('click','.buttonString', function(){
+   	newInStr = $(stringToParse).val();
+        //console.log("val is " + newInStr); 
+     var stepOne = fixUpString(newInStr);
+     testForPangram(stepOne); 
+     if( pangram ){
+			alert("yup a pangram");
+     }    
+   });//click
+
+</script>
+</body>
+</html>

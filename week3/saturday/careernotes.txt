@@ -1,0 +1,13 @@
+number theory
+algorithm theory
+computer language theory
+abstract syntax tree
+information modeling
+information hiding
+loose/tight coupling
+khan academy
+stanford online
+mit online
+john williams @gmail.com
+linkedin
+john@data.world

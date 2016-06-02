@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors Part 1</title>
+</head>
+<body>
+
+	<div id="game">
+	<p>"Press r, p, or s to start playing"</p>
+	</div>
+
+	<script type="text/javascript">
+
+// Create an array that lists out all of the options
+var options = ['r','p','s'];
+var computerScore = 0;
+var userScore = 0;
+var ties = 0;
+
+// alert('Press r, p, or s to start playing');
+// Captures Key Clicks
+document.onkeyup = function(event) {
+
+	// Determines which exact key was selected. Make it lowercase
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+	// var catAge = prompt('how old is your cat?');
+	// Alerts with user guess
+	// alert("You guessed " + userGuess);
+
+	// Create code to randomly choose one of the three options (Computer) 
+	var computerGuess = options[Math.floor(Math.random()*options.length)];
+
+	// Alerts with Computer guess
+	// alert("Computer guessed " + computerGuess);
+	if ((userGuess =="r") || (userGuess =='p') || (userGuess =='s')) {
+
+		if (computerGuess == userGuess) {
+			//alert("Same thing, choose again");
+			ties++;
+		}
+		else if (computerGuess == "r" && userGuess == "p") {
+			//alert("You win, computer guessed" + computerGuess + "you guessed " + userGuess);
+			userScore++;
+		}
+		else if (computerGuess == "r" && userGuess == "s") {
+			//alert("Computer wins, computer guessed " + computerGuess + "you guessed " + userGuess);
+			computerScore++;	
+		}
+		else if (computerGuess == "p" && userGuess == "s") {
+			//alert("You win, computer guessed " + computerGuess + "you guessed " + userGuess);
+			userScore++;	
+		}
+		else if (computerGuess == "p" && userGuess == "r") {
+			//alert("Computer wins, computer guessed " + computerGuess + "you guessed " + userGuess);	
+			computerScore++;
+		}
+		else if (computerGuess == "s" && userGuess == "p") {
+			//alert("Computer wins, computer guessed " + computerGuess + "you guessed " + userGuess);	
+			computerScore++;
+		}
+		else if (computerGuess == "s" && userGuess == "r") {
+				
+			userScore++;
+		}
+
+
+		var html = "Press r, p, or s to start playing" +
+		"<p>wins: " + 
+		userScore + 
+		"</p>" +
+		"<p>losses: " + 
+		computerScore + 
+		"</p>" +
+		"<p>ties: " + 
+		ties + 
+		"</p>";
+		document.querySelector('#game').innerHTML = html;
+	}
+}
+
+</script>
+</body>
+</html>

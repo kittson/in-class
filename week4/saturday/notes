@@ -1,0 +1,113 @@
+
+characters s/b objects, key:value pairs
+Health Points, Attack Power, and Counter Attack Power
+
+object of objects
+var = characters{ key:flowergirl}
+
+var chars = {
+	logolas: {
+	hp: 100,
+	attack: 200,
+	href: url link to image,
+	},
+	frodo: {
+	hp: 100,
+	attack: 200,
+	href: url.....,
+
+	}
+
+
+}
+var flowergirl = attackPower=200 (dot notation, chaing)
+jsfiddle
+
+var lgolasHP = chars.legolas.hp;
+chars.legolas.hp = foo;
+
+e.preventdefault
+anonymous functions (unnamed functions)
+
+
+jquery:
+var chars = {
+	legolas: {
+  	hp: 100,
+    attack: 200,
+    href: 'ndkjhfse'
+  },
+  frodo: {
+  	hp: 300,
+    attack: 100,
+    href: 'jhfdsh'
+  }
+};
+
+var legolasHp = chars.legolas.hp;
+console.log(legolasHp);
+
+document.getElementById('legolas').addEventListener('click', function(e) {
+  var characterBoxId = e.target.id;
+  console.log(chars[characterBoxId].attack)
+  NOT console.log(chars.characterBoxId.attack)
+  console.log(e);
+  
+})
+
+css:
+#legolas {
+  height: 100px;
+  width: 100px;
+  background-color: blue;
+}
+html:
+<div id="legolas"></div>
+
+another way to do this:
+
+var chars = {
+	legolas: {
+  	hp: 100,
+    attack: 200,
+    href: 'ndkjhfse'
+  },
+  frodo: {
+  	hp: 300,
+    attack: 100,
+    href: 'jhfdsh'
+  }
+};
+
+var legolasHp = chars.legolas.hp;
+console.log(chars['legolas'].hp);
+console.log(legolasHp);
+
+document.getElementById('legolas').addEventListener('click', function(e) {
+  var characterBoxId = e.target.id;
+  console.log(chars[characterBoxId].attack)
+})
+
+choose your character event listener
+
+documentgetelementbyclass
+
+activeCharacter= true or false;
+.css is a function for jquery
+changes styles dynamically
+
+css display none
+
+.empty clears the div
+visibility property too
+remove event listener
+
+jquery .toggle will toggle on and off
+
+
+best practice is to use javascript to add or remove classes and have all the possible classes available in the css
+
+$("legolas").onClick("function")
+
+$(".characters.legolas") targets multiple classes.  put a dot between them
+

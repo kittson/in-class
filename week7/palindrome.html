@@ -1,0 +1,40 @@
+<html>
+
+<head>
+	<title>pangram checker</title>
+</head>
+<body>
+<div class="inputForm">
+	<label for="addItem">Enter a String or Sentence to Check for Pangrams</label>
+	<input type="text" id="stringToParse">
+	<button type="submit" class="buttonString" id="theButton">Click to Check</button>
+</div>
+
+	<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+	<script type="text/javascript">	
+
+	var newInStr = "";
+
+ 	function compareStrings(inArr){
+		var backwardString = newInStr.split("").reverse().join("");
+		//console.log("created backward string " + backwardString);
+		if ( newInStr === backwardString ){
+			console.log("palindrome");
+			alert("Palindrome");
+		}
+		else {
+			console.log("not a palindrome");
+			alert("Not a Palindrome");
+		}
+	}//compareStrings func
+
+	//$('body').on('click','#theButton', function(){
+	$('body').on('click','.buttonString', function(){
+        newInStr = $(stringToParse).val();
+        console.log("val is " + newInStr); 
+        //compareStrings(newInStr);      
+   });//click
+
+	</script>
+</body>
+</html>

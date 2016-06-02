@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Calculator</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+    <h1 class="text-center">jQuery Calculator</h1>
+    <h3 class="text-center">Perform basic mathematic operations using the power of jQuery!</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <!-- Calculator Panel -->
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Calculator</h3>
+                </div>
+
+                <div class="panel-body">
+                            <button id="button1" class="btn btn-primary number" value=1><h1>1</h1></button>
+                            <button id="button2" class="btn btn-primary number" value=2><h1>2</h1></button>
+                            <button id="button3" class="btn btn-primary number" value=3><h1>3</h1></button>
+                            <button id="buttonPlus" class="btn btn-danger notNumber operator" value=plus><h1>+</h1></button>
+                            <br><br>
+                            <button id="button4" class="btn btn-primary number" value=4><h1>4</h1></button>
+                            <button id="button5" class="btn btn-primary number" value=5><h1>5</h1></button>
+                            <button id="button6" class="btn btn-primary number" value=6><h1>6</h1></button>
+                            <button id="buttonMinus" class="btn btn-danger notNumber operator" value=minus><h1>&minus;</h1></button>
+                            <br><br>
+                            <button id="button7" class="btn btn-primary number" value=7><h1>7</h1></button>
+                            <button id="button8" class="btn btn-primary number" value=8><h1>8</h1></button>
+                            <button id="button9" class="btn btn-primary number" value=9><h1>9</h1></button>
+                            <button id="buttonMultiply" class="btn btn-danger notNumber operator" value=times><h1>&times;</h1></button>
+                            <br><br>
+                            <button id="button0" class="btn btn-primary number" value=0><h1>0</h1></button>
+                            <button id="buttonDivide" class="btn btn-danger notNumber operator" value=divide><h1>&divide;</h1></button>
+                            <button id="buttonPower" class="btn btn-danger notNumber operator" value=power><h1>^</h1></button>
+                            <button id="buttonEqual" class="btn btn-success notNumber equal" value=equals><h1>=</h1></button>
+                            <br><br>
+                            <button id="clear" class="btn btn-default notNumber clear" value=clear><h1>clear</h1></button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Result Panel -->
+        <div class="col-lg-6">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Result</h3>
+                </div>
+                <div class="panel-body">
+                    <h1 id="firstNumber"></h1>
+                    <h1 id="operator"></h1>
+                    <h1 id="secondNumber"></h1>
+                    <hr>
+                    <h1 id="result"></h1>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    var numbers = ["1","2","3","4","5","6","7","8","9","0"];
+    var operators = ["+","-","*","/"];
+    var equalssign = "=";
+    var inputFirstNumStr ="";
+    var inputSecondNumStr ="";
+    var doneWithFirstNumber = false;
+    var doneWithSecondNumber = false;
+    var whichOperator 
+    var theResult 
+// Your
+//for (i = 0; i < letters.length; i++){
+ //           var b = $('<button>');
+  //          b.addClass("number-button letter letter-button-color");
+ //           b.attr("data-let", letters[i]);
+ //           b.text(letters[i]);
+ //           $("#buttons").append(b);
+//
+  //          var fridgeMagnet = $('<div class = "letter fridge-color">')
+  //      } 
+function makeNumFromStr (strToConvert){
+    convertedNum = parseInt( strToConvert);
+    return(convertedNum);
+}
+
+$('.btn').on('click', function() {
+    //console.log($(this).attr("value"));
+    theValue = $(this).attr("value");   
+    if ( $(this).hasClass("number") && !$(this).hasClass("notNumber")) {
+        if (doneWithFirstNumber === false){
+            inputFirstNumStr+= ($(this).attr("value"));
+            console.log("the value is " + theValue);
+            //$(result).replaceWith(inputFirstNumStr);
+        }        
+        if (doneWithFirstNumber === true){
+            inputSecondNumStr+= ($(this).attr("value"));
+        }
+        console.log("firstnum " + inputFirstNumStr);
+        console.log("secodnnum " + inputSecondNumStr);        
+    }
+    else if ( !$(this).hasClass("number") && $(this).hasClass("notNumber")){
+        if ($(this).hasClass("operator")) {    
+            doneWithFirstNumber = true;
+            firstNumber = makeNumFromStr(inputFirstNumStr);
+            whichOperator = $(this).attr("value");
+            //console.log("the value of operator is " + whichOperator);
+        }        
+        else if($(this).hasClass("equal")){
+            isEquals = true;
+            doneWithSecondNumber = true;
+            secondNumber = makeNumFromStr(inputSecondNumStr);
+            switch (whichOperator) {
+                case 'minus': 
+                console.log('minus');
+                $(result).append( firstNumber-secondNumber);
+                break;
+                case 'plus': 
+                console.log('plus');
+                $(result).append( firstNumber+secondNumber);
+                break;
+                case 'times': 
+                console.log('times');
+                $(result).append( firstNumber*secondNumber);
+                break;
+                case 'divide': 
+                console.log('divide');
+                $(result).append( firstNumber/secondNumber);
+                break;                                 
+            }
+            //console.log("it's an equals sign ");
+            //console.log("isEquals is " + isEquals);
+        }
+        else if ($(this).hasClass("clear")){
+             //   I must be a clear reset everything
+             console.log("clear is pressed ");
+             inputNumberString ="";
+             doneWithFirstNumber = true;
+             doneWithSecondNumber = true;
+             whichOperator = " ";
+             $(result).replaceWith(" ");
+             
+        }
+        
+    }
+    });
+
+});
+
+
+
+
+//$('.operator').on('click', function() {
+    //console.log($(this).attr("value"));
+    //return($(this).attr("value"));
+
+
+
+
+
+</script>
+    
+</body>
+</html>

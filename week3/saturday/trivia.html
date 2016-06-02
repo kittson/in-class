@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My First Object</title>
+</head>
+<body>
+
+<script>
+
+	var questions = { 
+		q1:["The first president of US was George Washington ", "true"],
+		q2:["Is red the color red? ", "true"],
+	}
+	//userAnswer = prompt( questions.q1[0]);
+	/* if (userAnswer == questions.q1[1]) {
+		alert("You got it!")
+	}
+	else {
+		alert("No good!")
+	} */
+
+	for (var x in questions ) {
+		userAnswer = prompt( questions[x][0]);
+		if (userAnswer == questions.q1[1]) {
+		alert("You got it!")
+		}
+		else {
+			alert("No good!")
+		}
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+body{
+  font-size: 24px;
+  background-color: lightgrey;
+  box-sizing: border-box;
+  height: auto;
+
+}
+
+#textwrapper h1{
+  text-align: center;
+  background-color: blue;
+  color:white;
+
+}
+h1{
+  text-align: center;
+  background-color: blue;
+  color:white;
+}
+#after{
+  clear:both;
+
+}
+#left{
+  box-sizing: border-box;
+  float:left;
+  width:75%;
+  background-color: cornflowerblue;
+  padding:2%;
+  height: inherit;
+}
+
+#right{
+  box-sizing: border-box;
+  float:left;
+  width: 25%;
+  background-color: #B20;
+  padding:2%;
+  height: inherit;
+}
+
+
+#textwrapper{
+  width:1024px;
+  background-color: antiquewhite;
+}

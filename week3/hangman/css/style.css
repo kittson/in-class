@@ -1,0 +1,17 @@
+
+/**
+css style sheet for hangman html page homework assignment
+**/
+
+
+#box-all {	
+	background-image: url(../images/lightbg.png);	
+}
+
+/** body.p {
+	font-size: 17px;
+	font-weight: normal;
+	text-align: center;
+	font-family: 'Georgia', Times, Times New Roman, serif;
+	color: #FFFFFF;
+} **/
