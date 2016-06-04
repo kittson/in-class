@@ -1,0 +1,23 @@
+.empty
+setitem
+getitem
+
+moment.js app
+
+console.log("snapshot: ", snapshot.val());
+
+comma note ^^
+
+console.log("snapshot ", snapshot.child());
+
+building an application
+
+-- find dependencies
+-- 
+
+employee name
+start date
+monthly rate
+role
+
+
