@@ -1,0 +1,23 @@
+
+first way
+fork
+then clone our version
+git checkout -b madeup-name
+
+make your changes
+
+git commit -am "comment" //pushes anything changed no new files
+
+git push -u origin madeup-name
+
+push changes to your fork
+
+git remote add allen kdsfjlkajsdfkljfk.git
+
+then git pull allen master
+
+
+
+
+
+second way is to add collaborators
